@@ -1,6 +1,12 @@
 learn_crawler/week2/**_files/
 
 *.code-workspace
+
 *.db
 
 learn_crawler/week4/python123
+
+*.pyc
+debug*
+__pycache__
+
