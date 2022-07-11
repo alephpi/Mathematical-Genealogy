@@ -1,6 +1,6 @@
 ## Mathematical Genealogy Project scraper
 这是一个自学爬虫的项目，最终目标是爬取数学家系谱图计划(Mathematical Genealogy Project)的数据库。
-
+主要搭建了scrapy框架爬取，并用sqlite3写入数据库。
 ## 参考资料：
 ### 爬虫项目类
 1. [北理工python爬虫公开课](https://www.bilibili.com/video/BV1P741177gm?p=1)，主要介绍requests库和bs4库，附带一点点scrapy框架。适合不想看英语的python初学者，但年代较久远，后面的示例已经失效。子文件夹learn_crawler是一些杂乱的课堂笔记。
