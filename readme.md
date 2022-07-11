@@ -31,3 +31,4 @@
 
 近三十万个页面，服务器爬取用时近10小时。
 
+[https://raw.githubusercontent.com/alephpi/Mathematical-Genealogy/master/mgpSpider/%E6%88%AA%E5%9B%BE%E7%95%99%E5%BF%B5%20copy.png]
