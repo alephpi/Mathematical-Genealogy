@@ -91,7 +91,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # Logging
-LOG_STDOUT = True
+#LOG_STDOUT = True #stdout for tqdm only
 LOG_LEVEL = INFO
 LOG_ENCODING = 'utf-8'
 LOG_FILE = './tmp/.log'

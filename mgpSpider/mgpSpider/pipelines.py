@@ -62,9 +62,13 @@ class MgpspiderPipeline(object):
     
     def close_spider(self, spider):
         self.conn.close()
-        print("database connection closed")
+        logging.info("database connection closed")
     def process_item(self, item, spider):
 
+        if item:
+            pass
+        else:
+            return None
         # a glance of the item (raw data)
         #  {
         # 'advisors': ['id.php?id=191279', 'id.php?id=125846'],

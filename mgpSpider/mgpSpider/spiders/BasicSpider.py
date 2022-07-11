@@ -1,23 +1,38 @@
-import scrapy 
+import scrapy
+from tqdm import tqdm
 from mgpSpider.items import MgpspiderItem 
+import logging
+
+# logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 class BasicSpider(scrapy.Spider): 
        name = "basic" 
        #allowed_domains = ["web"] 
-       start_urls = ["https://www.genealogy.math.ndsu.nodak.edu/id.php?id=1" 
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=122738" 
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=53410"
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=60782"
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=93643"
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=125886"
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=283247"
-              ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=129807"
-              ]
-       # def start_requests(self):
-       #     url = "https://www.mathgenealogy.org/id.php?id=1"
-       #     return
-       print("start\n") 
+       # start_urls = ["https://www.genealogy.math.ndsu.nodak.edu/id.php?id=1" 
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=122738" 
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=53410"
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=60782"
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=93643"
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=125886"
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=283247"
+       #        ,"https://www.genealogy.math.ndsu.nodak.edu/id.php?id=129807"
+       #        ]
+       def start_requests(self):
+           api = "https://www.mathgenealogy.org/id.php?id="
+           min = 1
+           max = 283247
+           for self.i in tqdm(range(min,max+1, 1)):
+              url = api + str(self.i)
+              yield scrapy.Request(url, callback=self.parse)
+                            # print("start\n") 
 
        def parse(self, response):
+              # try:
+              #        h1 = response.body.h1
+              #        pass
+              # except:
+              #        logging.info("id %s doesn't exist" % self.i)
+              #        yield None
+
               # print("start parsing\n")
               # perhaps define a raw item?
               item = MgpspiderItem()
